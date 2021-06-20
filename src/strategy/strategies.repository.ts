@@ -21,4 +21,8 @@ export class StrategiesRepository extends Repository<Strategy> {
     await this.save(strategy);
     return strategy;
   }
+
+  async removeStrategy(id: string) {
+    return this.delete(id);
+  }
 }

@@ -22,4 +22,8 @@ export class InstrumentsRepository extends Repository<Instrument> {
     await this.save(instrument);
     return instrument;
   }
+
+  async removeInstrument(id: string) {
+    return this.delete(id);
+  }
 }

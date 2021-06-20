@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { InstrumentsService } from './instruments.service';
 import { Instrument } from './instrument.entity';
 import { CreateInstrumentDto } from './dto/create-user.dto';
@@ -17,5 +17,10 @@ export class InstrumentController {
     @Body() createInstrumentDto: CreateInstrumentDto,
   ): Promise<Instrument> {
     return this.instrumentService.createInstrument(createInstrumentDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.instrumentService.remove(id);
   }
 }

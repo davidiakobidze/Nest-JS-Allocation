@@ -18,4 +18,8 @@ export class StrategiesService {
   createStrategy(createStrategyDto: CreateStrategyDto): Promise<Strategy> {
     return this.strategyRepository.createStrategy(createStrategyDto);
   }
+
+  remove(id: string) {
+    return this.strategyRepository.removeStrategy(id);
+  }
 }

@@ -27,4 +27,8 @@ export class UsersRepository extends Repository<User> {
       available: newAvailable,
     });
   }
+
+  async removeUser(id: string) {
+    return this.delete(id);
+  }
 }

@@ -16,11 +16,11 @@ export class UsersStrategy {
   @Column('float')
   percentage: number;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { onDelete: 'CASCADE' })
   @JoinColumn()
   user: string;
 
-  @ManyToOne(() => Strategy)
+  @ManyToOne(() => Strategy, { onDelete: 'CASCADE' })
   @JoinColumn()
   strategy: string;
 }

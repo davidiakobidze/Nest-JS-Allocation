@@ -20,4 +20,8 @@ export class InstrumentsService {
   ): Promise<Instrument> {
     return this.instrumentsRepository.createInstrument(createInstrumentDto);
   }
+
+  remove(id: string) {
+    return this.instrumentsRepository.removeInstrument(id);
+  }
 }
