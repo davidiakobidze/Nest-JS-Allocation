@@ -19,6 +19,10 @@ export class UsersStrategyService {
     return this.usersStrategyRepository.getAllocations();
   }
 
+  remove(id: string) {
+    return this.usersStrategyRepository.removeUserStrategy(id);
+  }
+
   private getSumStrategiesPercentage = (strategyPercentage) =>
     strategyPercentage.reduce((total, strategyPercentage) => {
       return (total += strategyPercentage.percent);

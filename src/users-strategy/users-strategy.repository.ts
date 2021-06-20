@@ -14,4 +14,8 @@ export class UsersStrategyRepository extends Repository<UsersStrategy> {
   }): Promise<UsersStrategy> {
     return await this.save(this.create(userStrategy));
   }
+
+  async removeUserStrategy(id: string) {
+    return this.delete(id);
+  }
 }
