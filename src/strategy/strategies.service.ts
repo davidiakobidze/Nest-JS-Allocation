@@ -8,14 +8,14 @@ import { Strategy } from './strategy.entity';
 export class StrategiesService {
   constructor(
     @InjectRepository(StrategiesRepository)
-    private tasksRepository: StrategiesRepository,
+    private strategyRepository: StrategiesRepository,
   ) {}
 
-  getTasks(): Promise<void> {
-    return this.tasksRepository.getTasks();
+  getStrategies(): Promise<Strategy[]> {
+    return this.strategyRepository.getStrategies();
   }
 
   createStrategy(createStrategyDto: CreateStrategyDto): Promise<Strategy> {
-    return this.tasksRepository.createStrategy(createStrategyDto);
+    return this.strategyRepository.createStrategy(createStrategyDto);
   }
 }

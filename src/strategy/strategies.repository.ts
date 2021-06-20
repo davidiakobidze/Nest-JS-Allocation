@@ -1,14 +1,11 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { Strategy } from './strategy.entity';
-import { Logger } from '@nestjs/common';
 import { CreateStrategyDto } from './dto/create-strategy.dto';
 
 @EntityRepository(Strategy)
 export class StrategiesRepository extends Repository<Strategy> {
-  private logger = new Logger('TasksRepository', true);
-
-  async getTasks(): Promise<void> {
-    this.logger.log('zddddddddddddddddddddddd');
+  async getStrategies(): Promise<Strategy[]> {
+    return this.find();
   }
 
   async createStrategy(

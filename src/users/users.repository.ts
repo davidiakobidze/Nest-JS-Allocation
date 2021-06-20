@@ -1,14 +1,11 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { User } from './user.entity';
-import { Logger } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 
 @EntityRepository(User)
 export class UsersRepository extends Repository<User> {
-  private logger = new Logger('TasksRepository', true);
-
-  async getTasks(): Promise<void> {
-    this.logger.log('zddddddddddddddddddddddd');
+  async getUsers(): Promise<User[]> {
+    return this.find();
   }
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {

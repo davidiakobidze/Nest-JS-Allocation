@@ -5,13 +5,11 @@ import { User } from './user.entity';
 
 @Controller('users')
 export class UsersController {
-  private logger = new Logger('TasksController');
-
   constructor(private usersService: UsersService) {}
 
   @Get()
-  getTasks(): Promise<void> {
-    return this.usersService.getTasks();
+  getUsers(): Promise<User[]> {
+    return this.usersService.getUsers();
   }
 
   @Post()

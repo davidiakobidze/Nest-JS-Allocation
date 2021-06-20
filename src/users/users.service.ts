@@ -11,8 +11,8 @@ export class UsersService {
     private userRepository: UsersRepository,
   ) {}
 
-  getTasks(): Promise<void> {
-    return this.userRepository.getTasks();
+  getUsers(): Promise<User[]> {
+    return this.userRepository.getUsers();
   }
 
   createUser(createUserDto: CreateUserDto): Promise<User> {
