@@ -1,4 +1,4 @@
-import { IsNotEmpty, Max, Min, ValidateNested } from "class-validator";
+import { IsNotEmpty, Max, Min, ValidateNested } from 'class-validator';
 
 export class StrategyPercentageObject {
   @IsNotEmpty()

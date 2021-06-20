@@ -1,14 +1,14 @@
-import { EntityRepository, Repository } from "typeorm";
-import { User } from "./user.entity";
-import { Logger } from "@nestjs/common";
-import { CreateUserDto } from "./dto/create-user.dto";
+import { EntityRepository, Repository } from 'typeorm';
+import { User } from './user.entity';
+import { Logger } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @EntityRepository(User)
 export class UsersRepository extends Repository<User> {
-  private logger = new Logger("TasksRepository", true);
+  private logger = new Logger('TasksRepository', true);
 
   async getTasks(): Promise<void> {
-    this.logger.log("zddddddddddddddddddddddd");
+    this.logger.log('zddddddddddddddddddddddd');
   }
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
@@ -18,7 +18,7 @@ export class UsersRepository extends Repository<User> {
       name,
       surname,
       available: 100,
-      amount
+      amount,
     });
 
     await this.save(user);
@@ -26,9 +26,8 @@ export class UsersRepository extends Repository<User> {
   }
 
   async updateAvailableById(id: string, newAvailable) {
-    return this.update(
-      id, {
-      available: newAvailable
+    return this.update(id, {
+      available: newAvailable,
     });
   }
 }

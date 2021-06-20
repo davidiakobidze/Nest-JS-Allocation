@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UsersStrategyService } from './users-strategy.service';
 import { Logger } from '@nestjs/common';
-import { AllocateDto } from "./dto/allocate.dto";
-import { User } from "../users/user.entity";
+import { AllocateDto } from './dto/allocate.dto';
+import { UsersStrategy } from './user-strategy.entity';
 
 @Controller('allocate')
 export class UsersStrategyController {
@@ -11,14 +11,12 @@ export class UsersStrategyController {
   constructor(private usersService: UsersStrategyService) {}
 
   @Get()
-  getTasks(): Promise<void> {
-    return this.usersService.getTasks();
+  getAllocations(): Promise<UsersStrategy[]> {
+    return this.usersService.getAllocations();
   }
 
   @Post()
-  allocate(
-    @Body() allocateDto: AllocateDto
-  ): Promise<any> {
+  allocate(@Body() allocateDto: AllocateDto): Promise<any> {
     return this.usersService.allocate(allocateDto);
   }
 }

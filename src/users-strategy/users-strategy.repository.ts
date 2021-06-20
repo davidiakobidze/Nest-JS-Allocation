@@ -1,25 +1,17 @@
-import { EntityRepository, Repository } from "typeorm";
-import { UsersStrategy } from "./user-strategy.entity";
-import { Logger } from "@nestjs/common";
+import { EntityRepository, Repository } from 'typeorm';
+import { UsersStrategy } from './user-strategy.entity';
 
 @EntityRepository(UsersStrategy)
 export class UsersStrategyRepository extends Repository<UsersStrategy> {
-
-  private logger = new Logger("TasksRepository", true);
-
-
-  async getTasks(): Promise<void> {
-
+  async getAllocations(): Promise<UsersStrategy[]> {
+    return this.find();
   }
 
-  async saveUserStrategy(
-    userStrategy: {
-      user: string,
-      strategy: string,
-      percentage: number
-    }): Promise<UsersStrategy> {
-
+  async saveUserStrategy(userStrategy: {
+    user: string;
+    strategy: string;
+    percentage: number;
+  }): Promise<UsersStrategy> {
     return await this.save(this.create(userStrategy));
   }
-
 }

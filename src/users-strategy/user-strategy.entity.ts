@@ -1,10 +1,10 @@
 import {
   Column,
   Entity,
-  JoinColumn, ManyToOne,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from "typeorm";
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { User } from '../users/user.entity';
 import { Strategy } from '../strategy/strategy.entity';
 

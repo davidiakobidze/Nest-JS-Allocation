@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { StrategiesService } from './strategies.service';
 import { Logger } from '@nestjs/common';
-import { CreateStrategyDto } from "./dto/create-strategy.dto";
-import { Strategy } from "./strategy.entity";
+import { CreateStrategyDto } from './dto/create-strategy.dto';
+import { Strategy } from './strategy.entity';
 
 @Controller('strategy')
 export class StrategiesController {
@@ -17,7 +17,7 @@ export class StrategiesController {
 
   @Post()
   createStrategy(
-    @Body() createStrategyDto: CreateStrategyDto
+    @Body() createStrategyDto: CreateStrategyDto,
   ): Promise<Strategy> {
     return this.strategyService.createStrategy(createStrategyDto);
   }

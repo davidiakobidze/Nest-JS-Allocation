@@ -1,14 +1,15 @@
-import { Module } from "@nestjs/common";
-import { TypeOrmModule } from "@nestjs/typeorm";
-import { UsersStrategyController } from "./users-strategy.controller";
-import { UsersStrategyRepository } from "./users-strategy.repository";
-import { UsersStrategyService } from "./users-strategy.service";
-import { UsersRepository } from "../users/users.repository";
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersStrategyController } from './users-strategy.controller';
+import { UsersStrategyRepository } from './users-strategy.repository';
+import { UsersStrategyService } from './users-strategy.service';
+import { UsersRepository } from '../users/users.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([UsersStrategyRepository, UsersRepository])],
+  imports: [
+    TypeOrmModule.forFeature([UsersStrategyRepository, UsersRepository]),
+  ],
   controllers: [UsersStrategyController],
-  providers: [UsersStrategyService]
+  providers: [UsersStrategyService],
 })
-export class UsersStrategyModule {
-}
+export class UsersStrategyModule {}
