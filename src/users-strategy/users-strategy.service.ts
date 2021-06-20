@@ -19,7 +19,7 @@ export class UsersStrategyService {
     return this.usersStrategyRepository.getAllocations();
   }
 
-  getSumStrategiesPercentage = (strategyPercentage) =>
+  private getSumStrategiesPercentage = (strategyPercentage) =>
     strategyPercentage.reduce((total, strategyPercentage) => {
       return (total += strategyPercentage.percent);
     }, 0);
