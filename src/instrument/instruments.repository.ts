@@ -1,12 +1,25 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { Instrument } from './instrument.entity';
-import { Logger } from '@nestjs/common';
+import { CreateInstrumentDto } from './dto/create-user.dto';
 
 @EntityRepository(Instrument)
 export class InstrumentsRepository extends Repository<Instrument> {
-  private logger = new Logger('TasksRepository', true);
+  async getInstruments(): Promise<Instrument[]> {
+    return this.find();
+  }
 
-  async getTasks(): Promise<void> {
-    this.logger.log('zddddddddddddddddddddddd');
+  async createInstrument(
+    createInstrumentDto: CreateInstrumentDto,
+  ): Promise<Instrument> {
+    const { name, isin, exchange } = createInstrumentDto;
+
+    const instrument = this.create({
+      name,
+      isin,
+      exchange,
+    });
+
+    await this.save(instrument);
+    return instrument;
   }
 }
