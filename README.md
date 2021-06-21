@@ -23,6 +23,8 @@ npm run start:dev
 
 ## How To Use
 
+Postman documentation https://documenter.getpostman.com/view/3034176/TzeZF78z
+
 - Create User
   POST http://localhost:3000/users with body:
   {
